@@ -20,9 +20,9 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-        main.stage.addActor(new Play(main));
-        main.stage.addActor(new BreakAndPlay(main));
-        main.stage.addActor(new Scores(main));
+        main.stage.addActor((new Play(main)));
+        //main.stage.addActor(new BreakAndPlay(main));
+        //main.stage.addActor(new Scores(main));
 
         music = Gdx.audio.newMusic(Gdx.files.internal("Audio/Music/Menu.mp3"));
         music.setLooping(true);

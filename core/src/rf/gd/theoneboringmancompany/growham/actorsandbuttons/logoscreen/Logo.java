@@ -38,7 +38,6 @@ public class Logo extends Actor {
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 main.setScreen(new MainMenuScreen(main));
                 clickOk.dispose();
-                main.stage.clear();
                 super.touchUp(event, x, y, pointer, button);
             }
         });

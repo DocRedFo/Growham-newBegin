@@ -1,5 +1,6 @@
 package rf.gd.theoneboringmancompany.growham.actors.scores;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -18,6 +19,7 @@ public class BackButton extends MyButton {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 main.stage.clear();
+                Gdx.input.vibrate(20);
                 main.setScreen(new MainMenuScreen(main));
                 return super.touchDown(event, x, y, pointer, button);
             }

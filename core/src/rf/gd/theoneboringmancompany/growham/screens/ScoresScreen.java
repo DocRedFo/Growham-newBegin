@@ -41,6 +41,7 @@ public class ScoresScreen implements Screen {
 
         if (Gdx.input.isKeyPressed (Input.Keys.BACK)){
             main.stage.clear();
+            Gdx.input.vibrate(20);
             main.setScreen(new MainMenuScreen(main));
         }
 

@@ -40,6 +40,7 @@ public class MainMenuScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         if (Gdx.input.isKeyPressed (Input.Keys.BACK)){
+            Gdx.input.vibrate(20);
             main.dispose();
             System.exit(0);
         }

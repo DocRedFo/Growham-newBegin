@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import rf.gd.theoneboringmancompany.growham.screens.LogoScreen;
 
@@ -15,11 +16,11 @@ public class Main extends Game {
 	public BitmapFont fontOrdinary;
 	public BitmapFont fontWarning;
 	public OrthographicCamera camera;
-	public ExtendViewport viewport;
+	public Viewport viewport;
 	public Stage stage;
 
-	public final float CAMERA_HEIGHT = 810;
-	public final float CAMERA_WIDTH = 1440;
+	private final float CAMERA_HEIGHT = 810;
+	private final float CAMERA_WIDTH = 1440;
 
 	@Override
 	public void create() {

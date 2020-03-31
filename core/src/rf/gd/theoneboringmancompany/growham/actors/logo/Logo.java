@@ -1,4 +1,4 @@
-package rf.gd.theoneboringmancompany.growham.actorsandbuttons.logoscreen;
+package rf.gd.theoneboringmancompany.growham.actors.logo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
@@ -18,19 +18,22 @@ public class Logo extends Actor {
     private Sound clickOk;
 
     private final String TEXT = "Нажмите для начала";
+    private final String pathToPicture = "Pictures/Other/Logo/logo.png";
+    private final String pathToSound = "Audio/UI/ok.mp3";
+    private final float clickOkVolume = 20/100f;
 
     public Logo(final Main main) {
         this.main = main;
-        this.sprite = new Sprite(new Texture(Gdx.files.internal("Pictures/Other/Logo/logo.png")));
+        this.sprite = new Sprite(new Texture(Gdx.files.internal(pathToPicture)));
 
-        this.clickOk = Gdx.audio.newSound(Gdx.files.internal("Audio/UI/ok.mp3"));
+        this.clickOk = Gdx.audio.newSound(Gdx.files.internal(pathToSound));
 
-        this.setBounds(0,0, main.CAMERA_WIDTH, main.CAMERA_HEIGHT);
+        this.setBounds(0,0, main.camera.viewportWidth, main.camera.viewportHeight);
 
         this.addListener(new ClickListener(){
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                clickOk.play(20/100f);
+                clickOk.play(clickOkVolume);
                 return super.touchDown(event, x, y, pointer, button);
             }
 
@@ -46,6 +49,6 @@ public class Logo extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         sprite.draw(batch);
-        main.fontOrdinary.draw(batch, TEXT, main.CAMERA_WIDTH/2, main.CAMERA_HEIGHT/10);
+        main.fontOrdinary.draw(batch, TEXT, main.camera.viewportWidth/2, main.camera.viewportHeight/10);
     }
 }

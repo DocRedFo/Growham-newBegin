@@ -6,13 +6,16 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 
 import rf.gd.theoneboringmancompany.growham.Main;
-import rf.gd.theoneboringmancompany.growham.actorsandbuttons.mainmenuscreen.BreakAndPlay;
-import rf.gd.theoneboringmancompany.growham.actorsandbuttons.mainmenuscreen.Play;
-import rf.gd.theoneboringmancompany.growham.actorsandbuttons.mainmenuscreen.Scores;
+import rf.gd.theoneboringmancompany.growham.actors.mainMenu.BreakAndPlay;
+import rf.gd.theoneboringmancompany.growham.actors.mainMenu.Play;
+import rf.gd.theoneboringmancompany.growham.actors.mainMenu.Scores;
 
 public class MainMenuScreen implements Screen {
     private final Main main;
     private Music music;
+
+    private final String pathToMusic = "Audio/Music/Menu.mp3";
+    private final float musicVolume = 10/100f;
 
     public MainMenuScreen(Main main) {
         this.main = main;
@@ -21,12 +24,12 @@ public class MainMenuScreen implements Screen {
     @Override
     public void show() {
         main.stage.addActor((new Play(main)));
-        //main.stage.addActor(new BreakAndPlay(main));
-        //main.stage.addActor(new Scores(main));
+        main.stage.addActor(new BreakAndPlay(main));
+        main.stage.addActor(new Scores(main));
 
-        music = Gdx.audio.newMusic(Gdx.files.internal("Audio/Music/Menu.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal(pathToMusic));
         music.setLooping(true);
-        music.setVolume(10/100f);
+        music.setVolume(musicVolume);
         music.play();
 
         Gdx.input.setInputProcessor(main.stage);
@@ -61,7 +64,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void hide() {
-
+        main.stage.clear();
     }
 
     @Override

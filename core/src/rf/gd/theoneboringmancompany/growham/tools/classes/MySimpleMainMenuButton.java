@@ -1,4 +1,4 @@
-package rf.gd.theoneboringmancompany.growham.actorsandbuttons.mainmenuscreen;
+package rf.gd.theoneboringmancompany.growham.tools.classes;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -8,10 +8,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 
 import rf.gd.theoneboringmancompany.growham.Main;
 
-public class Play extends Button {
+public abstract class MySimpleMainMenuButton extends Button {
     private final Main main;
 
-    private final float ANIMATION_SPEED = 1/45f;
+    private float AnimationSpeed = 1/45f;
     private float time = 0f;
 
     private final int BUTTON_SIZE = 512;
@@ -19,16 +19,26 @@ public class Play extends Button {
     private TextureAtlas atlas;
     private Animation<TextureAtlas.AtlasRegion> animation;
 
-    public Play(Main main){
+    private String pathToTextureAtlas;
+
+    public MySimpleMainMenuButton(Main main, String pathToTextureAtlas){
+        this.pathToTextureAtlas = pathToTextureAtlas;
         this.main = main;
 
-        atlas = new TextureAtlas(Gdx.files.internal("Pictures/Buttons/Animation/Play/sprite.atlas"));
-        animation = new Animation<>(ANIMATION_SPEED, atlas.getRegions());
+        atlas = new TextureAtlas(Gdx.files.internal(pathToTextureAtlas));
+        animation = new Animation<>(AnimationSpeed, atlas.getRegions());
 
-        this.setPosition(main.CAMERA_WIDTH/2 - BUTTON_SIZE/2, main.CAMERA_HEIGHT/2 - BUTTON_SIZE/2);
         this.setHeight(BUTTON_SIZE);
         this.setWidth(BUTTON_SIZE);
 
+    }
+
+    public void setAnimationSpeed(float animationSpeed) {
+        this.AnimationSpeed = animationSpeed;
+    }
+
+    public int getBUTTON_SIZE() {
+        return BUTTON_SIZE;
     }
 
     @Override
@@ -36,4 +46,5 @@ public class Play extends Button {
         time += Gdx.graphics.getDeltaTime();
         batch.draw(animation.getKeyFrame(time, true), getX(), getY());
     }
+
 }

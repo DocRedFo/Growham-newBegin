@@ -5,7 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import rf.gd.theoneboringmancompany.growham.Main;
-import rf.gd.theoneboringmancompany.growham.actorsandbuttons.logoscreen.Logo;
+import rf.gd.theoneboringmancompany.growham.actors.logo.Logo;
 
 public class LogoScreen implements Screen {
     private final Main main;

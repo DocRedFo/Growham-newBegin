@@ -41,6 +41,10 @@ public abstract class MySimpleMainMenuButton extends Button {
         return BUTTON_SIZE;
     }
 
+    public void dispose(){
+        atlas.dispose();
+    }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
         time += Gdx.graphics.getDeltaTime();

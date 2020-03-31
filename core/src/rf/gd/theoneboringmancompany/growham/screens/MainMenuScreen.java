@@ -1,6 +1,7 @@
 package rf.gd.theoneboringmancompany.growham.screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
@@ -31,14 +32,17 @@ public class MainMenuScreen implements Screen {
         music.setLooping(true);
         music.setVolume(musicVolume);
         music.play();
-
-        Gdx.input.setInputProcessor(main.stage);
     }
 
     @Override
     public void render(float delta) {
         Gdx.gl.glClearColor(109/255f,72/255f,215/255f,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        if (Gdx.input.isKeyPressed (Input.Keys.BACK)){
+            main.dispose();
+            System.exit(0);
+        }
 
         main.stage.act(delta);
 
@@ -65,6 +69,8 @@ public class MainMenuScreen implements Screen {
     @Override
     public void hide() {
         main.stage.clear();
+        music.pause();
+        dispose();
     }
 
     @Override

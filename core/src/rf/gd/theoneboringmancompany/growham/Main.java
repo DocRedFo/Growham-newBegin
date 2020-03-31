@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import rf.gd.theoneboringmancompany.growham.screens.LogoScreen;
@@ -31,7 +31,9 @@ public class Main extends Game {
 
 		camera = new OrthographicCamera(CAMERA_WIDTH, CAMERA_HEIGHT);
 		camera.position.set(CAMERA_WIDTH/2, CAMERA_HEIGHT/2, 0);
-		viewport = new ExtendViewport(CAMERA_WIDTH, CAMERA_HEIGHT, camera);
+		viewport = new FitViewport(camera.viewportWidth, camera.viewportHeight, camera);
+
+		Gdx.input.setCatchBackKey(true);
 
 		stage = new Stage(viewport);
 

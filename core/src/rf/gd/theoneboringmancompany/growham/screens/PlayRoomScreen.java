@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import rf.gd.theoneboringmancompany.growham.Main;
+import rf.gd.theoneboringmancompany.growham.actors.playRoom.Hamster;
 import rf.gd.theoneboringmancompany.growham.actors.playRoom.Room;
 
 public class PlayRoomScreen implements Screen {
@@ -17,6 +18,7 @@ public class PlayRoomScreen implements Screen {
     @Override
     public void show() {
         main.stage.addActor(new Room(main));
+        main.stage.addActor(new Hamster(main));
     }
 
     @Override

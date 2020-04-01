@@ -17,7 +17,7 @@ public class Logo extends Actor {
     private Sprite sprite;
     private Sound clickOk;
 
-    private final String TEXT = "Нажмите для начала";
+    private final String TEXT = "Нажмите дважды для начала";
     private final String pathToPicture = "Pictures/Other/Logo/logo.png";
     private final String pathToSound = "Audio/UI/ok.mp3";
     private final float clickOkVolume = 20/100f;

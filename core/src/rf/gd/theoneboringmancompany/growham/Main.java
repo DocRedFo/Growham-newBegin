@@ -2,6 +2,7 @@ package rf.gd.theoneboringmancompany.growham;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,8 +11,11 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import rf.gd.theoneboringmancompany.growham.screens.LogoScreen;
+import rf.gd.theoneboringmancompany.growham.tools.interfaces.NotificationHandler;
 
 public class Main extends Game {
+    public NotificationHandler notificationHandler;
+
 	public SpriteBatch batch;
 	public BitmapFont fontOrdinary;
 	public BitmapFont fontWarning;
@@ -22,7 +26,8 @@ public class Main extends Game {
 	private final float CAMERA_HEIGHT = 810;
 	private final float CAMERA_WIDTH = 1440;
 
-	@Override
+
+    @Override
 	public void create() {
 		batch = new SpriteBatch();
 
@@ -49,4 +54,8 @@ public class Main extends Game {
 		fontWarning.dispose();
 		stage.dispose();
 	}
+
+    public void setNotificationHandler(NotificationHandler handler) {
+        this.notificationHandler = handler;
+    }
 }

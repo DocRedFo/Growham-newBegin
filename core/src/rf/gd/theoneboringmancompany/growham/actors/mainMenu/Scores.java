@@ -19,6 +19,7 @@ public class Scores extends MySimpleMainMenuButton {
         addListener(new ClickListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                main.notificationHandler.showNotification("Open", "You open thiiiiiiiiiiiiiiiiiiiiiiiisssssssssssss page");
                 Gdx.input.vibrate(20);
                 main.setScreen(new ScoresScreen(main));
                 dispose();

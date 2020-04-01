@@ -11,10 +11,24 @@ public class Room extends Actor {
     private final Main main;
 
     private Sprite sprite;
+    private Sprite levelOne;
+    private Sprite levelCounter;
+    private int levelRoom = 0;
 
-    public Room(Main main){
+    public Room(Main main) {
         this.main = main;
         sprite = new Sprite(new Texture("Pictures/Other/Room/room.png"));
+        if (levelRoom == 1) {
+            levelOne = new Sprite(new Texture("Pictures/Other/Room/BOF/bof.png"));
+        }
+    }
+
+    public int getLevelRoom() {
+        return levelRoom;
+    }
+
+    public void setLevelRoom(int levelRoom) {
+        this.levelRoom = levelRoom;
     }
 
     @Override

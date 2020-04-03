@@ -36,13 +36,13 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(109/255f,72/255f,215/255f,1);
+        Gdx.gl.glClearColor(0,0,9,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         if (Gdx.input.isKeyPressed (Input.Keys.BACK)){
             Gdx.input.vibrate(20);
             main.dispose();
-            System.exit(0);
+            Gdx.app.exit();
         }
 
         main.stage.act(delta);

@@ -12,15 +12,33 @@ public class Hamster extends Actor {
     private final Main main;
 
     private int age = 0;
-    private float n = 0f;
+    public int money = 100;
+    public int health = 100;
+    public int hungry = 100;
 
-    private TextureAtlas atlas, atlasSit;
+    public int level = 0;
+
+    public int emotions;
+
+    private float n = 0f;
+    private float[] sit;
+
+    private float Width;
+    private float Height;
+
+    private TextureAtlas atlas;
     private Animation<TextureAtlas.AtlasRegion> animation;
 
     public Hamster(Main main) {
         this.main = main;
+
+        setEmotions();
+
         atlas = new TextureAtlas("Pictures/Hamster/Sit/Wow/Normal/sprite.atlas");
-        animation = new Animation<TextureAtlas.AtlasRegion>(1/60f, atlas.getRegions());
+        animation = new Animation<TextureAtlas.AtlasRegion>(1/80f, atlas.getRegions());
+
+        sit = new float[]{(float) (main.camera.viewportWidth / 2 - atlas.createSprite("file").getWidth()),
+                (float)(main.camera.viewportHeight/6 - atlas.createSprite("file").getHeight())};
     }
 
     public void humsterBody(){
@@ -44,8 +62,22 @@ public class Hamster extends Actor {
         }
     }
 
+    public void setEmotions(){
+        emotions = (int) (health + hungry)/2;
+        if ((emotions == 100) || (emotions > 75 && emotions <= 100)){
+            emotions = 2;
+        }
+        else if (emotions > 25 && emotions <= 75){
+            emotions = 1;
+        }
+        else {
+            emotions = 0;
+        }
+    }
+
     @Override
     public void draw(Batch batch, float parentAlpha) {
+        setEmotions();
         n += Gdx.graphics.getDeltaTime();
         batch.draw(animation.getKeyFrame(n, true), 0, 0);
     }

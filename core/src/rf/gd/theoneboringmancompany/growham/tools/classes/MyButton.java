@@ -11,7 +11,7 @@ import rf.gd.theoneboringmancompany.growham.Main;
 public abstract class MyButton extends Button {
     private final Main main;
 
-    private Sprite sprite;
+    public Sprite sprite;
 
     public MyButton(Main main, String pathToPicture, float buttonWidth, float buttonHeight){
         this.main = main;

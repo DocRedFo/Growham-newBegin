@@ -25,8 +25,9 @@ public class AdapterAndroid implements NotificationHandler {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void showNotification(String title, String text) {
+        int notificationId = 999;
 
-        Intent notificationIntent = new Intent(gameActivity, AdapterAndroid.class);
+        Intent notificationIntent = new Intent(gameActivity, gameActivity.getClass());
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         PendingIntent contentIntent = PendingIntent.getActivity(gameActivity,
@@ -48,18 +49,6 @@ public class AdapterAndroid implements NotificationHandler {
                 .setContentText(text);
         Notification n = builder.build();
 
-        nm.notify(999, n);
-
-
-//        Notification.Builder mBuilder = new Notification.Builder(gameActivity)
-//                .setSmallIcon(R.mipmap.ic_launcher)
-//                .setContentTitle(title)
-//                .setContentText(text);
-//
-//
-//        int notificationId = 999;
-//
-//        NotificationManager notificationManager = (NotificationManager) gameActivity.getSystemService(gameActivity.NOTIFICATION_SERVICE);
-//        notificationManager.notify(notificationId, mBuilder.build());
+        nm.notify(notificationId, n);
     }
 }

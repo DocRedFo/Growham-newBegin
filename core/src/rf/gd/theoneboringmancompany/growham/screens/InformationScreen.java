@@ -6,19 +6,17 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
 import rf.gd.theoneboringmancompany.growham.Main;
-import rf.gd.theoneboringmancompany.growham.actors.market.BackButtonMarket;
-import rf.gd.theoneboringmancompany.growham.actors.market.FoodOne;
-import rf.gd.theoneboringmancompany.growham.actors.market.FoodTwo;
-import rf.gd.theoneboringmancompany.growham.actors.market.Med;
-import rf.gd.theoneboringmancompany.growham.actors.market.UpdateRoom;
+import rf.gd.theoneboringmancompany.growham.actors.information.Health;
+import rf.gd.theoneboringmancompany.growham.actors.information.Hungry;
+import rf.gd.theoneboringmancompany.growham.actors.information.Money;
 import rf.gd.theoneboringmancompany.growham.actors.playRoom.Hamster;
 
-public class MarketScreen implements Screen {
+public class InformationScreen implements Screen {
     private final Main main;
     private final Hamster hamster;
     private final PlayRoomScreen playRoomScreen;
 
-    public MarketScreen(Main main, Hamster hamster, PlayRoomScreen playRoomScreen) {
+    public InformationScreen(Main main, Hamster hamster, PlayRoomScreen playRoomScreen) {
         this.main = main;
         this.hamster = hamster;
         this.playRoomScreen = playRoomScreen;
@@ -26,11 +24,9 @@ public class MarketScreen implements Screen {
 
     @Override
     public void show() {
-        main.stage.addActor(new BackButtonMarket(main));
-        main.stage.addActor(new FoodOne(main, hamster));
-        main.stage.addActor(new FoodTwo(main, hamster));
-        main.stage.addActor(new Med(main, hamster));
-        main.stage.addActor(new UpdateRoom(main, hamster));
+        main.stage.addActor(new Health(main, hamster));
+        main.stage.addActor(new Hungry(main, hamster));
+        main.stage.addActor(new Money(main, hamster));
     }
 
     @Override

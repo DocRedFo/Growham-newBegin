@@ -11,15 +11,18 @@ import rf.gd.theoneboringmancompany.growham.Main;
 public class MyPicture extends Actor {
     private final Main main;
 
-    private Sprite sprite;
+    public Sprite sprite;
 
-    public MyPicture(Main main, String pathToPicture, float Width, float Height, float x, float y){
+    public MyPicture(Main main, String pathToPicture, float x, float y){
         this.main = main;
         sprite = new Sprite(new Texture(Gdx.files.internal(pathToPicture)));
-
-        setWidth(Width);
-        setHeight(Height);
         setPosition(x, y);
+        setHeightAndWidth();
+    }
+
+    public void setHeightAndWidth(){
+        setWidth(sprite.getWidth());
+        setHeight(sprite.getHeight());
     }
 
     @Override

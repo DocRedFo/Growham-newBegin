@@ -7,7 +7,6 @@ public class Time extends MyPicture {
 
     public Time(Main main) {
         super(main, "Pictures/Other/Scores/Time/time.png",
-                168, 160,
                 main.camera.viewportWidth/2 + 168*2,
                 main.camera.viewportHeight/2 + main.camera.viewportHeight/4 - 160/2);
     }
